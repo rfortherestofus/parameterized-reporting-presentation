@@ -1,0 +1,66 @@
+---
+title: "Parameterized Reporting"
+output:
+  xaringan::moon_reader:
+    css: ["style.css", "default"]
+    lib_dir: libs
+    df_print: paged
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: 16:9
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(eval = FALSE, 
+                      warning = FALSE,
+                      message = FALSE,
+                      rows.print = 5)
+```
+
+layout: true
+  
+<div class="dk-footer">
+<span>
+<a href="https://rfortherestofus.com/" target="_blank">R for the Rest of Us
+</a>
+</span>
+</div> 
+
+---
+
+class: center, middle, inverse
+
+# How do you make 170 reports? 
+
+---
+
+class: center, middle
+
+![](images/ct.png)
+
+???
+
+Tell story of CTData
+
+---
+
+class: center, middle
+
+[![](images/psc-sample.png)](https://housingprofiles.pschousing.org/)
+
+---
+
+# Parameterized Reporting
+
+--
+
+![](images/parameterized-reporting-overview.png)
+
+---
+
+
+
+[![](images/rru-resources-parameterized-reporting.png)](https://rfortherestofus.com/resources/?_search=parameterized)
+

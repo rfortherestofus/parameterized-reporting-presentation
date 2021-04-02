@@ -1,0 +1,40 @@
+---
+title: "Sample Parameterized Report"
+output: 
+  pagedreport::paged_windmill:
+    logo: "https://mk0rfortheresto0o08q.kinstacdn.com/wp-content/uploads/2020/08/rru-logo-blue.svg"
+    img_to_dark: FALSE
+    logo_to_white: TRUE
+    front_img: "https://unsplash.com/photos/2CA93gJIh98/download?force=true&w=2400"
+main-color: "#6cabdd"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      include = TRUE,
+                      warning = FALSE,
+                      message = FALSE)
+```
+
+
+
+```{r}
+library(tidyverse)
+library(palmerpenguins)
+```
+
+# Introduction
+
+```{r}
+penguins %>% 
+  group_by(species) %>% 
+  summarize(avg_weight = mean(body_mass_g, na.rm = TRUE)) %>% 
+  ggplot(aes(x = species,
+             y = avg_weight)) +
+  geom_col() +
+  theme_minimal()
+```
+
+
+
+
