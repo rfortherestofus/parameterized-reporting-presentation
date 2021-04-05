@@ -1,9 +1,37 @@
 library(tidyverse)
 library(rmarkdown)
 library(palmerpenguins)
-library(multireport) # https://dgkeyes.github.io/multireport/
+
+
+# Render a single report --------------------------------------------------
 
 render(input = "report.Rmd")
+
+
+# By hand -----------------------------------------------------------------
+
+# https://urban-institute.medium.com/iterated-fact-sheets-with-r-markdown-d685eb4eafce
+
+island <- penguins %>% 
+  mutate(island = as.character(island)) %>% 
+  distinct(island) %>% 
+  pull(island)
+
+
+reports <- tibble(
+  input = "report.Rmd",
+  output_file = str_c("reports/", island, "-report.html"),
+  params = map(island, ~list(island = .))
+)
+
+
+reports %>%
+  pwalk(render)
+
+
+# multireport -------------------------------------------------------------
+
+library(multireport) # https://dgkeyes.github.io/multireport/
 
 penguins_params <- penguins %>% 
   distinct(island)
