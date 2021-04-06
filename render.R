@@ -7,7 +7,6 @@ library(palmerpenguins)
 
 render(input = "report.Rmd")
 
-
 # By hand -----------------------------------------------------------------
 
 # https://urban-institute.medium.com/iterated-fact-sheets-with-r-markdown-d685eb4eafce
@@ -24,6 +23,8 @@ reports <- tibble(
   params = map(island, ~list(island = .))
 )
 
+render(input = "report.Rmd",
+       output_file = "test.html")
 
 reports %>%
   pwalk(render)
@@ -42,6 +43,6 @@ multireport(
   report_title_param = "island",
   report_suffix = "-report",
   report_title_to_lower = TRUE,
-  report_output_directory = "reports"
+  report_output_directory = "multireport"
 )
 

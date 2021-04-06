@@ -7,6 +7,8 @@ output:
     logo_to_white: TRUE
     front_img: "https://unsplash.com/photos/2CA93gJIh98/download?force=true&w=2400"
 main-color: "#6cabdd"
+params:
+  island: "Torgersen"
 ---
 
 ```{r setup, include=FALSE}
@@ -23,10 +25,15 @@ library(tidyverse)
 library(palmerpenguins)
 ```
 
+
+
 # Introduction
+
+This a report on penguins on the island of `r params$island`.
 
 ```{r}
 penguins %>% 
+  filter(island == params$island) %>% 
   group_by(species) %>% 
   summarize(avg_weight = mean(body_mass_g, na.rm = TRUE)) %>% 
   ggplot(aes(x = species,
